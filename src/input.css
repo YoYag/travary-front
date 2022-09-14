@@ -1,9 +1,15 @@
+/* font */
+@font-face {
+  font-family: "Noto";
+  src: url("./assets/fonts/NotoSansKR-Regular.otf");
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer utilities {
-  .w-1100px {
-    width: 1100px;
+  .w-1280px {
+    width: 1280px;
   }
 }

@@ -8,7 +8,7 @@ import Diary from "./routes/Diary";
 
 function App() {
   return (
-    <div className="m-auto w-1100px flex flex-col items-center ...">
+    <div className="m-auto w-1280px flex flex-col items-center ...">
       <Router>
         <Header />
         <Routes>
