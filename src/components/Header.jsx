@@ -1,16 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import search from "../assets/images/icons/search.png";
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const showMain = () => {
+    navigate(`/`);
+  };
+
   return (
     <div className="w-full border-b">
       <div className="py-4 flex justify-between">
-        <div>
+        <div className="cursor-pointer" onClick={showMain}>
           <p>나의 여행일기</p>
           <p className="text-4xl font-bold">Travary</p>
         </div>
-        <div className="w-48 flex justify-between">
+        <div className="w-48 flex justify-between items-center">
           <button className="btn btn-outline">로그인</button>
           <button className="btn btn-outline">회원가입</button>
         </div>
@@ -32,8 +38,8 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <div className="w-12 border flex justify-center items-center">
-          <img className="w-8 h-8" src={search} alt="" />
+        <div className="w-12 border flex justify-center items-center cursor-pointer">
+          <img className="w-6 h-6" src={search} alt="" />
         </div>
       </div>
     </div>
