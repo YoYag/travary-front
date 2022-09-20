@@ -17,7 +17,9 @@ const Header = () => {
           <p className="text-4xl font-bold">Travary</p>
         </div>
         <div className="w-48 flex justify-between items-center">
-          <button className="btn btn-outline">로그인</button>
+          <Link to={`/login`}>
+            <button className="btn btn-outline">로그인</button>
+          </Link>
           <button className="btn btn-outline">회원가입</button>
         </div>
       </div>
