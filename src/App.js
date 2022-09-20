@@ -6,6 +6,7 @@ import Plan from "./routes/Plan";
 import Meet from "./routes/Meet";
 import Diary from "./routes/Diary";
 import Login from "./routes/Login";
+import Join from "./routes/Join";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/meet" element={<Meet />} />
           <Route path="/diary" element={<Diary />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/join" element={<Join />} />
         </Routes>
         <div class="text-2xl ...">안녕...</div>
         <Footer />

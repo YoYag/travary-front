@@ -20,7 +20,9 @@ const Header = () => {
           <Link to={`/login`}>
             <button className="btn btn-outline">로그인</button>
           </Link>
-          <button className="btn btn-outline">회원가입</button>
+          <Link to={`/join`}>
+            <button className="btn btn-outline">회원가입</button>
+          </Link>
         </div>
       </div>
       <div className="flex">
