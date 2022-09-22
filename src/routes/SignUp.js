@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const Join = () => {
+const SignUp = () => {
   // 유저정보
   const [userInfo, setUserInfo] = useState({
     username: "",
@@ -130,4 +130,4 @@ const Join = () => {
   );
 };
 
-export default Join;
+export default SignUp;

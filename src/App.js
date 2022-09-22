@@ -6,8 +6,8 @@ import Main from "./routes/Main";
 import Plan from "./routes/Plan";
 import Meet from "./routes/Meet";
 import Diary from "./routes/Diary";
-import Login from "./routes/Login";
-import Join from "./routes/Join";
+import SignIn from "./routes/SignIn";
+import SignUp from "./routes/SignUp";
 import Test from "./routes/Test";
 
 function App() {
@@ -20,8 +20,8 @@ function App() {
           <Route path="/plan" element={<Plan />} />
           <Route path="/meet" element={<Meet />} />
           <Route path="/diary" element={<Diary />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/join" element={<Join />} />
+          <Route path="/sign_in" element={<SignIn />} />
+          <Route path="/sign_up" element={<SignUp />} />
           <Route path="/test" element={<Test />} />
         </Routes>
         <Link to={`/test`}>

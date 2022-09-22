@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const SignIn = () => {
   return (
     <div className="text-center my-4 w-1/4">
       <h1 className="text-2xl font-bold">로그인 페이지</h1>
-      <form action="">
+      <div action="form-controll">
         <label className="input-group input-group-sm my-4">
           <span className="w-1/3">아이디</span>
           <input
@@ -30,9 +30,9 @@ const Login = () => {
             <button className="btn my-2 w-full">회원가입</button>
           </Link>
         </div>
-      </form>
+      </div>
     </div>
   );
 };
 
-export default Login;
+export default SignIn;
