@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Main from "./routes/Main";
@@ -7,6 +8,7 @@ import Meet from "./routes/Meet";
 import Diary from "./routes/Diary";
 import Login from "./routes/Login";
 import Join from "./routes/Join";
+import Test from "./routes/Test";
 
 function App() {
   return (
@@ -20,8 +22,11 @@ function App() {
           <Route path="/diary" element={<Diary />} />
           <Route path="/login" element={<Login />} />
           <Route path="/join" element={<Join />} />
+          <Route path="/test" element={<Test />} />
         </Routes>
-        <div class="text-2xl ...">안녕...</div>
+        <Link to={`/test`}>
+          <button className="btn btn-sm">테스트페이지</button>
+        </Link>
         <Footer />
       </Router>
     </div>
