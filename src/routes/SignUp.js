@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const SignUp = () => {
+  const [error, setError] = useState(null);
+
   // 유저정보
   const [userInfo, setUserInfo] = useState({
     username: "",
@@ -33,6 +35,10 @@ const SignUp = () => {
       setError(e);
     }
   };
+
+  if (error) {
+    return <span>{error.message}</span>;
+  }
 
   const test = () => {
     console.log(userInfo);

@@ -26,7 +26,7 @@ const SignIn = () => {
         </label>
         <div className="form-control">
           <button className="btn my-2">로그인</button>
-          <Link to={`/join`}>
+          <Link to={`/sign_up`}>
             <button className="btn my-2 w-full">회원가입</button>
           </Link>
         </div>

@@ -17,10 +17,10 @@ const Header = () => {
           <p className="text-4xl font-bold">Travary</p>
         </div>
         <div className="w-48 flex justify-between items-center">
-          <Link to={`/login`}>
+          <Link to={`/sign_in`}>
             <button className="btn btn-outline">로그인</button>
           </Link>
-          <Link to={`/join`}>
+          <Link to={`/sign_up`}>
             <button className="btn btn-outline">회원가입</button>
           </Link>
         </div>
