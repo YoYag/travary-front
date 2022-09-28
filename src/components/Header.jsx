@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <div className="w-full border-b">
-      <div className="py-4 flex justify-between">
+      <div className="py-4 flex border-b justify-between">
         <div className="cursor-pointer" onClick={showMain}>
           <p>나의 여행일기</p>
           <p className="text-4xl font-bold">Travary</p>
