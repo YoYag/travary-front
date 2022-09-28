@@ -1,16 +1,21 @@
 import axios from "axios";
 import React from "react";
+import { useEffect } from "react";
 
 const Test = () => {
   // const [userInfo, setUserInfo] = useState(null)
 
   const getUserList = async () => {
     const data = await axios({
-      url: "http://localhost:8080/user/list",
+      url: "http://localhost:8080/api/test",
       method: "GET",
     });
     console.log(data);
   };
+
+  useEffect(() => {
+    getUserList();
+  }, []);
 
   return (
     <div>

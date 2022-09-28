@@ -9,6 +9,8 @@ import Diary from "./routes/Diary";
 import SignIn from "./routes/SignIn";
 import SignUp from "./routes/SignUp";
 import Test from "./routes/Test";
+import CreatePlan from "./routes/CreatePlan";
+import CreateDiary from "./routes/CreateDiary";
 
 function App() {
   return (
@@ -17,8 +19,10 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Main />} />
+          <Route path="/create_plan" element={<CreatePlan />} />
           <Route path="/plan" element={<Plan />} />
           <Route path="/meet" element={<Meet />} />
+          <Route path="/create_diary" element={<CreateDiary />} />
           <Route path="/diary" element={<Diary />} />
           <Route path="/sign_in" element={<SignIn />} />
           <Route path="/sign_up" element={<SignUp />} />

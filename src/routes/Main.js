@@ -1,12 +1,14 @@
 import React from "react";
-import mainbanner from "../assets/images/main/travel_1.jpg";
+import { Link } from "react-router-dom";
+import main_plan from "../assets/images/main/travel_1.jpg";
+import main_diary from "../assets/images/main/travel_2.jpg";
 
 const Main = () => {
   return (
     <div className="w-full">
       <div className="card lg:card-side my-4 bg-base-100 shadow-xl">
         <figure>
-          <img className="h-96" src={mainbanner} alt="main_banner_img" />
+          <img className="h-96" src={main_plan} alt="main_banner_img" />
         </figure>
         <div className="card-body">
           <h2 className="card-title">
@@ -18,7 +20,9 @@ const Main = () => {
             veniam ipsum quo voluptas fugiat quia magni quas a! Quae, sapiente?
           </p>
           <div className="card-actions justify-end">
-            <button className="btn btn">여행 계획</button>
+            <Link to={`/create_plan`}>
+              <buttton className="btn">여행 계획</buttton>
+            </Link>
           </div>
         </div>
       </div>
@@ -33,11 +37,13 @@ const Main = () => {
             veniam ipsum quo voluptas fugiat quia magni quas a! Quae, sapiente?
           </p>
           <div className="card-actions justify-start">
-            <button className="btn btn">여행 일기</button>
+            <Link to={`/create_diary`}>
+              <buttton className="btn">여행 일기</buttton>
+            </Link>
           </div>
         </div>
         <figure>
-          <img className="h-96" src={mainbanner} alt="main_banner_img" />
+          <img className="h-96" src={main_diary} alt="main_banner_img" />
         </figure>
       </div>
     </div>

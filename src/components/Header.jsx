@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import search from "../assets/images/icons/search.png";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -42,9 +41,6 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <div className="w-12 border flex justify-center items-center cursor-pointer">
-          <img className="w-6 h-6" src={search} alt="" />
-        </div>
       </div>
     </div>
   );

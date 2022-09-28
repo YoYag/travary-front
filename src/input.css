@@ -9,6 +9,11 @@
 @tailwind utilities;
 
 @layer utilities {
+  .wh-1024px75vh {
+    width: 1024px;
+    height: 75vh;
+  }
+
   .w-1280px {
     width: 1280px;
   }
