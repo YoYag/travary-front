@@ -1,7 +1,7 @@
 import React from "react";
 import Map from "../components/map/Map.jsx";
 import { useState } from "react";
-import SearchMap from "../components/SearchMap.jsx";
+import PlanBox from "../components/PlanBox.jsx";
 
 const CreatePlan = () => {
   const [apiReady, setApiReady] = useState(false);
@@ -20,8 +20,7 @@ const CreatePlan = () => {
   return (
     <div className="w-full flex">
       <div className="w-1/5 mr-2">
-        {apiReady && googlemaps && <SearchMap />}
-        <div>일정</div>
+        <PlanBox />
       </div>
       <Map />
     </div>

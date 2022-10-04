@@ -1,8 +1,9 @@
 import React from "react";
+import Category from "./Category";
 
 const SearchMap = () => {
   return (
-    <div className="h-12">
+    <div className="h-1/4">
       <div className="form-control">
         <div className="input-group">
           <input
@@ -28,6 +29,7 @@ const SearchMap = () => {
           </button>
         </div>
       </div>
+      <Category />
     </div>
   );
 };
