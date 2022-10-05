@@ -1,7 +1,14 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
+import { useState } from "react";
 
-const Map = () => {
+const Map = ({ setMapData, setMapApiData }) => {
+  const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
+
+  const [apiReady, setApiReady] = useState(false);
+  const [map, setMap] = useState(null);
+  const [mapApi, setMapApi] = useState(null);
+
   const defaultProps = {
     center: {
       lat: 37.487935,
@@ -10,11 +17,26 @@ const Map = () => {
     zoom: 10,
   };
 
+  const handleApiLoaded = (map, maps) => {
+    // map과 maps 개체가 로드됐다면, 각각의 state값에 넣어준다.
+    if (map && maps) {
+      setApiReady(true);
+      // console.log("map : ", map);
+      // console.log("maps : ", maps);
+      setMap(map);
+      setMapData(map);
+      setMapApi(maps);
+      setMapApiData(maps);
+    } else {
+      console.log("실패");
+    }
+  };
+
   return (
     <div className="wh-1024px75vh">
       <GoogleMapReact
         bootstrapURLKeys={{
-          key: "AIzaSyDk08atzQPD_VqTY3jCCdQB6LrBm0B2isY",
+          key: API_KEY,
           language: "ko",
           libraries: "places",
         }}
