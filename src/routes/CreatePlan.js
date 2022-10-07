@@ -4,18 +4,22 @@ import Map from "../components/map/Map.jsx";
 import PlanBox from "../components/PlanBox.jsx";
 
 const CreatePlan = () => {
-  const [mapData, setMapData] = useState(null);
-  const [mapApiData, setMapApiData] = useState(null);
+  const [apiReady, setApiReady] = useState(false);
+  const [mapData, setMapData] = useState("");
+  const [mapApiData, setMapApiData] = useState("");
 
+  console.log(apiReady);
   console.log(mapData);
-  console.log(mapApiData);
+  console.log(mapApiData.places);
 
   return (
     <div className="w-full flex">
-      <div className="w-1/5 mr-2">
-        <PlanBox map={mapData} mapApi={mapApiData} />
-      </div>
-      <Map setMapData={setMapData} setMapApiData={setMapApiData} />
+      <PlanBox mapData={mapData} mapApiData={mapApiData} />
+      <Map
+        setMapData={setMapData}
+        setMapApiData={setMapApiData}
+        setApiReady={setApiReady}
+      />
     </div>
   );
 };

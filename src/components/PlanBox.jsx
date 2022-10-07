@@ -2,11 +2,11 @@ import React from "react";
 import SearchMap from "./SearchMap";
 import PlanRoute from "./PlanRoute";
 
-const PlanBox = ({ map, mapApi }) => {
+const PlanBox = ({ mapData, mapApiData }) => {
   return (
-    <div className="h-full">
-      <SearchMap map={map} mapApi={mapApi} />
+    <div className="w-1/2 flex">
       <PlanRoute />
+      <SearchMap mapData={mapData} mapApiData={mapApiData} />
     </div>
   );
 };

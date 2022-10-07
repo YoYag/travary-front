@@ -1,6 +1,18 @@
 import React from "react";
+import { useCallback } from "react";
 
-const SearchBar = () => {
+const SearchBar = ({ mapData, mapApiData }) => {
+  // const input = useRef(null);
+  // const searchBox = useRef(null);
+
+  // const handleOnPlacesChanged = useCallback(() => {
+  //   if ()
+  // }, [])
+
+  // const componentDidMount = () => {
+  //   this.SearchBox = new mapApi.places.SearchBox(this.input);
+  // };
+
   return (
     <div className="form-control">
       <div className="input-group">

@@ -13,13 +13,13 @@ const Category = () => {
   ];
 
   const categoryList = Categories.map((Category, i) => (
-    <button className="btn w-14 h-14 mt-2" key={i} id={Category.id}>
+    <button className="btn w-1/4 h-14 mt-1" key={i} id={Category.id}>
       <i className={Category.icon} size="lg" />
     </button>
   ));
 
   return (
-    <div className="flex flex-wrap justify-between" id="category">
+    <div className="w-full flex flex-wrap justify-between" id="category">
       {categoryList}
     </div>
   );

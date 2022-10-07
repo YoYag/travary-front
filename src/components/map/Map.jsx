@@ -1,13 +1,8 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
-import { useState } from "react";
 
-const Map = ({ setMapData, setMapApiData }) => {
+const Map = ({ setMapData, setMapApiData, setApiReady }) => {
   const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
-
-  const [apiReady, setApiReady] = useState(false);
-  const [map, setMap] = useState(null);
-  const [mapApi, setMapApi] = useState(null);
 
   const defaultProps = {
     center: {
@@ -23,17 +18,15 @@ const Map = ({ setMapData, setMapApiData }) => {
       setApiReady(true);
       // console.log("map : ", map);
       // console.log("maps : ", maps);
-      setMap(map);
       setMapData(map);
-      setMapApi(maps);
       setMapApiData(maps);
     } else {
-      console.log("실패");
+      console.log("Api 로딩 실패");
     }
   };
 
   return (
-    <div className="wh-1024px75vh">
+    <div className="h-75vh w-full">
       <GoogleMapReact
         bootstrapURLKeys={{
           key: API_KEY,
