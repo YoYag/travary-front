@@ -1,5 +1,4 @@
 import React from "react";
-import { useCallback } from "react";
 
 const SearchBar = ({ mapData, mapApiData }) => {
   // const input = useRef(null);

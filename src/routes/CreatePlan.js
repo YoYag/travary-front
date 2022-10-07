@@ -7,18 +7,20 @@ const CreatePlan = () => {
   const [apiReady, setApiReady] = useState(false);
   const [mapData, setMapData] = useState("");
   const [mapApiData, setMapApiData] = useState("");
+  const [place, setPlace] = useState([]);
 
-  console.log(apiReady);
-  console.log(mapData);
-  console.log(mapApiData.places);
+  console.log("apiReady : ", apiReady);
+  console.log("mapData : ", mapData);
+  console.log("mapApiData : ", mapApiData.places);
 
   return (
     <div className="w-full flex">
       <PlanBox mapData={mapData} mapApiData={mapApiData} />
       <Map
+        setApiReady={setApiReady}
         setMapData={setMapData}
         setMapApiData={setMapApiData}
-        setApiReady={setApiReady}
+        setPlace={setPlace}
       />
     </div>
   );

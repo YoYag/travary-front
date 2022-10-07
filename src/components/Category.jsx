@@ -13,8 +13,8 @@ const Category = () => {
   ];
 
   const categoryList = Categories.map((Category, i) => (
-    <button className="btn w-1/4 h-14 mt-1" key={i} id={Category.id}>
-      <i className={Category.icon} size="lg" />
+    <button className="btn w-1/4 h-14 mt-1 text-lg" key={i} id={Category.id}>
+      <i className={Category.icon} />
     </button>
   ));
 
