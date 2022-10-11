@@ -15,12 +15,6 @@ const Map = ({ setApiReady, setMapData, setMapApiData, setPlace }) => {
     zoom: 10,
   };
 
-  const contacts = [
-    { name: "Spiderman", lat: 37.488, lng: 126.858 },
-    { name: "Iron Man", lat: 37.62, lng: 126.859 },
-    { name: "Hulk", lat: 37.489, lng: 126.758 },
-  ];
-
   // 검색기능 구현중(장소정보 api)
   const handleApiLoaded = (map, maps) => {
     // map과 maps 개체가 로드됐다면, 각각의 state값에 넣어준다.
@@ -30,10 +24,27 @@ const Map = ({ setApiReady, setMapData, setMapApiData, setPlace }) => {
       // console.log("maps : ", maps);
       setMapData(map);
       setMapApiData(maps);
+      console.log("Api 로딩 성공");
     } else {
       console.log("Api 로딩 실패");
     }
   };
+
+  // 구글 정보창
+  // const google = window.google;
+  // const infoWindow = new google.maps.InfoWindow({
+  //   content: "",
+  //   disableAutoPan: true,
+  // });
+
+  // Create an array of alphabetical characters used to label the markers.
+  // const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  const locations = [
+    { name: "Spiderman", lat: 37.488, lng: 126.858 },
+    { name: "Iron Man", lat: 37.62, lng: 126.859 },
+    { name: "Hulk", lat: 37.489, lng: 126.758 },
+  ];
 
   return (
     <div className="h-75vh w-full">
@@ -55,11 +66,11 @@ const Map = ({ setApiReady, setMapData, setMapApiData, setPlace }) => {
         // map은 지도 객체, maps에는 api object가 들어있음
         onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
       >
-        {contacts.map((contact, i) => (
+        {locations.map((location, i) => (
           <Marker
-            lat={contact.lat}
-            lng={contact.lng}
-            text={contact.name}
+            lat={location.lat}
+            lng={location.lng}
+            text={location.name}
             key={i}
           />
         ))}
