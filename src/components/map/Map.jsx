@@ -28,16 +28,6 @@ const Map = ({ setApiReady, setMapData, setMapApiData, places }) => {
     }
   };
 
-  // 구글 정보창
-  // const google = window.google;
-  // const infoWindow = new google.maps.InfoWindow({
-  //   content: "",
-  //   disableAutoPan: true,
-  // });
-
-  // Create an array of alphabetical characters used to label the markers.
-  // const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
   return (
     <div className="h-75vh w-full">
       <GoogleMapReact

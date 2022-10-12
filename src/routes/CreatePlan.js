@@ -33,7 +33,6 @@ const CreatePlan = () => {
         setMapApiData={setMapApiData}
         places={places}
       />
-      <button onClick={showData}>클릭</button>
     </div>
   );
 };
