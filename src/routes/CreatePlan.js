@@ -7,21 +7,40 @@ const CreatePlan = () => {
   const [apiReady, setApiReady] = useState(false);
   const [mapData, setMapData] = useState("");
   const [mapApiData, setMapApiData] = useState("");
-  // const [place, setPlace] = useState([]);
+  const [places, setPlaces] = useState([]);
 
-  console.log("apiReady : ", apiReady);
-  console.log("mapData : ", mapData);
-  console.log("mapApiData : ", mapApiData.places);
+  const addPlace = (places) => {
+    if (places) {
+      setPlaces(places);
+    }
+  };
+
+  const showData = () => {
+    console.log("places : ", places);
+  };
+
+  // console.log("apiReady : ", apiReady);
+  // console.log("mapData : ", mapData);
+  // console.log("mapApiData : ", mapApiData.places);
 
   return (
     <div className="w-full flex">
-      {apiReady ? <PlanBox mapData={mapData} mapApiData={mapApiData} /> : ""}
+      {apiReady ? (
+        <PlanBox
+          mapData={mapData}
+          mapApiData={mapApiData}
+          addPlace={addPlace}
+        />
+      ) : (
+        ""
+      )}
       <Map
         setApiReady={setApiReady}
         setMapData={setMapData}
         setMapApiData={setMapApiData}
-        // setPlace={setPlace}
+        places={places}
       />
+      <button onClick={showData}>클릭</button>
     </div>
   );
 };

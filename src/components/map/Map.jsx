@@ -2,7 +2,7 @@ import React from "react";
 import GoogleMapReact from "google-map-react";
 import Marker from "./Marker";
 
-const Map = ({ setApiReady, setMapData, setMapApiData, setPlace }) => {
+const Map = ({ setApiReady, setMapData, setMapApiData, places }) => {
   // 지도 api_key
   const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
@@ -66,14 +66,15 @@ const Map = ({ setApiReady, setMapData, setMapApiData, setPlace }) => {
         // map은 지도 객체, maps에는 api object가 들어있음
         onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
       >
-        {locations.map((location, i) => (
-          <Marker
-            lat={location.lat}
-            lng={location.lng}
-            text={location.name}
-            key={i}
-          />
-        ))}
+        {places.length !== 0 &&
+          places.map((place) => (
+            <Marker
+              key={place.place_id}
+              text={place.name}
+              lat={place.lat}
+              lng={place.lng}
+            />
+          ))}
       </GoogleMapReact>
     </div>
   );

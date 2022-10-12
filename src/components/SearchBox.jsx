@@ -1,5 +1,4 @@
 import React from "react";
-import { useRef } from "react";
 
 class SearchBox extends React.Component {
   render() {
@@ -20,7 +19,6 @@ class SearchBox extends React.Component {
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              // onClick={onPlacesChanged}
             >
               <path
                 strokeLinecap="round"
@@ -35,9 +33,10 @@ class SearchBox extends React.Component {
     );
   }
 
-  onPlacesChanged = ({ mapData } = this.props) => {
+  onPlacesChanged = ({ mapData, addPlace } = this.props) => {
     const selected = this.searchBox.getPlaces();
     const { 0: place } = selected;
+    addPlace(selected);
 
     if (!place.geometry) return;
 
