@@ -9,19 +9,12 @@ const CreatePlan = () => {
   const [mapApiData, setMapApiData] = useState("");
   const [places, setPlaces] = useState([]);
 
+  // 검색기능(지도 마커 표시)
   const addPlace = (places) => {
     if (places) {
       setPlaces(places);
     }
   };
-
-  const showData = () => {
-    console.log("places : ", places);
-  };
-
-  // console.log("apiReady : ", apiReady);
-  // console.log("mapData : ", mapData);
-  // console.log("mapApiData : ", mapApiData.places);
 
   return (
     <div className="w-full flex">

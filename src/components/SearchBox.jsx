@@ -4,7 +4,14 @@ class SearchBox extends React.Component {
   render() {
     return (
       <div className="form-control">
-        <div className="input-group">
+        <input
+          id="pac-input"
+          type="text"
+          placeholder="Search…"
+          className="input input-bordered w-full max-w-xs"
+          ref={(ref) => (this.input = ref)}
+        />
+        {/* <div className="input-group">
           <input
             id="pac-input"
             type="text"
@@ -12,7 +19,7 @@ class SearchBox extends React.Component {
             className="input input-bordered w-full"
             ref={(ref) => (this.input = ref)}
           />
-          <button className="btn btn-square">
+          <button className="btn btn-square" onClick={this.search}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -28,24 +35,32 @@ class SearchBox extends React.Component {
               />
             </svg>
           </button>
-        </div>
+        </div> */}
       </div>
     );
   }
 
-  onPlacesChanged = ({ mapData, addPlace } = this.props) => {
+  onPlacesChanged = ({ mapData, mapApiData, addPlace } = this.props) => {
     const selected = this.searchBox.getPlaces();
-    const { 0: place } = selected;
+    // const { 0: place } = selected;
+
+    // 새로운 LatLngBounds 객체 생성
+    let bounds = new mapApiData.LatLngBounds();
+
+    selected.forEach((place) => {
+      if (!place.geometry) return;
+
+      if (place.geometry.viewport) {
+        // 객체의 좌표 경계와 현재 좌표 경계를 모두 포함하는 새로운 좌표 경계 객체를 반환
+        bounds.union(place.geometry.viewport);
+      } else {
+        bounds.extend(place.geometry.location);
+        // mapData.setZoom(14);
+      }
+    });
+
+    mapData.fitBounds(bounds);
     addPlace(selected);
-
-    if (!place.geometry) return;
-
-    if (place.geometry.viewport) {
-      mapData.fitBounds(place.geometry.viewport);
-    } else {
-      mapData.fitBounds(place.geometry.location);
-      mapData.setZoom(14);
-    }
   };
 
   componentDidMount({ mapData, mapApiData } = this.props) {
