@@ -1,8 +1,9 @@
 import React from "react";
 import Category from "./Category";
 import SearchBox from "./SearchBox";
+import SearchList from "./SearchList";
 
-const SearchMap = ({ mapData, mapApiData, addPlace }) => {
+const SearchMap = ({ mapData, mapApiData, addPlace, places }) => {
   return (
     <div className="w-full">
       <SearchBox
@@ -10,7 +11,8 @@ const SearchMap = ({ mapData, mapApiData, addPlace }) => {
         mapApiData={mapApiData}
         addPlace={addPlace}
       />
-      <Category />
+      {/* <Category /> */}
+      <SearchList places={places} />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 
 const Category = () => {
-  const Categories = [
+  const categories = [
     { id: "cafe", icon: "fas fa-coffee" },
     { id: "restaurants", icon: "fas fa-utensils" },
     { id: "bakery", icon: "fas fa-bread-slice" },
@@ -12,9 +12,10 @@ const Category = () => {
     { id: "bank", icon: "fas fa-piggy-bank" },
   ];
 
-  const categoryList = Categories.map((Category, i) => (
+  const categoryList = categories.map((category, i) => (
     <button className="btn w-1/4 h-14 mt-1 text-lg" key={i} id={Category.id}>
-      <i className={Category.icon} />
+      <i className={category.icon} />
+      <p className="text-xs">{category.id}</p>
     </button>
   ));
 
