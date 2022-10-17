@@ -17,7 +17,7 @@ const CreatePlan = () => {
   };
 
   return (
-    <div className="w-full flex">
+    <div className="w-full h-75vh flex">
       {apiReady ? (
         <PlanBox
           mapData={mapData}

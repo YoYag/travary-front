@@ -29,7 +29,7 @@ const Map = ({ setApiReady, setMapData, setMapApiData, places }) => {
   };
 
   return (
-    <div className="h-75vh w-full">
+    <div className="w-full h-full">
       <GoogleMapReact
         bootstrapURLKeys={{
           key: API_KEY,

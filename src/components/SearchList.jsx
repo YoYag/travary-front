@@ -15,28 +15,29 @@ const SearchList = ({ places }) => {
   // }
 
   // const showData = () => {
-  //   console.log("places : ", places.length);
+  //   console.log("places : ", places[0].place_id);
   //   console.log("activated : ", activated);
+  //   console.log("currentIndex : ", currentIndex);
   // };
 
   const showList = places.map((place, i) => (
     <li
-      // className={activated[i] ? "bordered w-16 h-12" : "w-12 h-12"}
-      className={currentIndex === i ? "bordered w-16 h-12" : "w-12 h-12"}
-      key={i}
+      className={currentIndex == i ? "bordered" : ""}
+      key={place.place_id}
       value={i}
       // onClick={searchListCheck}
       onClick={(e) => {
-        setCurrentIndex(e.target.value);
-        // console.log(e.target.value);
+        setCurrentIndex(i);
       }}
     >
-      {/* <button className="block text-left h-full active:bg-base-content border-black">
+      <button
+        value={i}
+        className="block text-left h-full active:bg-base-content border-black"
+      >
         <p>{place.name}</p>
         <p className="text-xs mt-1">주소 : {place.formatted_address}</p>
         <p className="text-xs mt-1">⭐ {place.rating}</p>
-        <p>{i}</p>
-      </button> */}
+      </button>
     </li>
   ));
 
@@ -45,7 +46,7 @@ const SearchList = ({ places }) => {
   // }, [places]);
 
   return (
-    <ul className="menu mt-4">
+    <ul className="menu h-list-custom overflow-y-auto scrollbar">
       {places && showList}
       {/* <button onClick={showData}>클릭</button> */}
     </ul>
