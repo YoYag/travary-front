@@ -21,7 +21,7 @@ const Main = () => {
           </p>
           <div className="card-actions justify-end">
             <Link to={`/create_plan`}>
-              <buttton className="btn">여행 계획</buttton>
+              <button className="btn">여행 계획</button>
             </Link>
           </div>
         </div>
@@ -38,7 +38,7 @@ const Main = () => {
           </p>
           <div className="card-actions justify-start">
             <Link to={`/create_diary`}>
-              <buttton className="btn">여행 일기</buttton>
+              <button className="btn">여행 일기</button>
             </Link>
           </div>
         </div>

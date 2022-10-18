@@ -1,18 +1,9 @@
 import React from "react";
-import { useEffect } from "react";
 import { useState } from "react";
 
 const SearchList = ({ places }) => {
-  // const [activated, setActivated] = useState(Array(places.length).fill(false));
   const [currentIndex, setCurrentIndex] = useState("");
   const [selectPlace, setSelectPlace] = useState("");
-
-  // function searchListCheck(event) {
-  //   const newArr = Array(activated.length).fill(false);
-  //   newArr[event.target.value] = true;
-  //   setActivated(newArr);
-  //   setSelectPlace(places);
-  // }
 
   // const showData = () => {
   //   console.log("places : ", places[0].place_id);
@@ -25,9 +16,9 @@ const SearchList = ({ places }) => {
       className={currentIndex == i ? "bordered" : ""}
       key={place.place_id}
       value={i}
-      // onClick={searchListCheck}
       onClick={(e) => {
         setCurrentIndex(i);
+        setSelectPlace(place.name);
       }}
     >
       <button
@@ -40,10 +31,6 @@ const SearchList = ({ places }) => {
       </button>
     </li>
   ));
-
-  // useEffect(() => {
-  //   setActivated(Array(places.length).fill(false));
-  // }, [places]);
 
   return (
     <ul className="menu h-list-custom overflow-y-auto scrollbar">

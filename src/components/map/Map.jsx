@@ -1,8 +1,17 @@
 import React from "react";
+import { useState } from "react";
 import GoogleMapReact from "google-map-react";
 import Marker from "./Marker";
+import { useEffect } from "react";
 
-const Map = ({ setApiReady, setMapData, setMapApiData, places }) => {
+const Map = ({
+  setApiReady,
+  setMapData,
+  setMapApiData,
+  places,
+  activatedLocation,
+  setActivatedLocation,
+}) => {
   // 지도 api_key
   const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 
@@ -28,6 +37,14 @@ const Map = ({ setApiReady, setMapData, setMapApiData, places }) => {
     }
   };
 
+  const markerClicked = (key) => {
+    setActivatedLocation(key);
+  };
+
+  useEffect(() => {
+    handleApiLoaded();
+  }, []);
+
   return (
     <div className="w-full h-full">
       <GoogleMapReact
@@ -40,6 +57,7 @@ const Map = ({ setApiReady, setMapData, setMapApiData, places }) => {
         defaultZoom={defaultProps.zoom}
         // map, maps 개체에 접근하기 위해 반드시 true로 설정해줘야 함
         yesIWantToUseGoogleMapApiInternals
+        onChildClick={markerClicked}
         // map은 지도 객체, maps에는 api object가 들어있음
         onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
       >
@@ -47,9 +65,9 @@ const Map = ({ setApiReady, setMapData, setMapApiData, places }) => {
           places.map((place) => (
             <Marker
               key={place.place_id}
-              text={place.name}
               lat={place.geometry.location.lat()}
               lng={place.geometry.location.lng()}
+              activatedLocation={place.place_id === activatedLocation}
             />
           ))}
       </GoogleMapReact>

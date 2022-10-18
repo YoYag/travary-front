@@ -1,9 +1,17 @@
 import React from "react";
 
-const Marker = () => {
+const Marker = ({ activatedLocation }) => {
+  // const icon = props.activatedLocation
+  //   ? { name: "fas fa-location-dot text-xl" }
+  //   : { name: "fas fa-circle" };
+
   return (
-    <div className="text-4xl">
-      <i className="fas fa-location-dot" />
+    <div className="cursor-pointer" onClick={console.log(activatedLocation)}>
+      {activatedLocation ? (
+        <i className="text-2xl fas fa-location-dot" />
+      ) : (
+        <i className="fas fa-circle" />
+      )}
     </div>
   );
 };
