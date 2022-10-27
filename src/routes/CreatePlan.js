@@ -25,6 +25,8 @@ const CreatePlan = () => {
           mapApiData={mapApiData}
           addPlace={addPlace}
           places={places}
+          activatedLocation={activatedLocation}
+          setActivatedLocation={setActivatedLocation}
         />
       ) : (
         ""

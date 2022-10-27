@@ -1,6 +1,6 @@
 import React from "react";
 
-class SearchBox extends React.Component {
+class SearchBar extends React.Component {
   render() {
     return (
       <div className="form-control">
@@ -8,7 +8,7 @@ class SearchBox extends React.Component {
           id="pac-input"
           type="text"
           placeholder="Search…"
-          className="input input-bordered w-full max-w-xs"
+          className="input input-bordered w-full h-8 max-w-xs"
           ref={(ref) => (this.input = ref)}
         />
         {/* <div className="input-group">
@@ -78,4 +78,4 @@ class SearchBox extends React.Component {
   }
 }
 
-export default SearchBox;
+export default SearchBar;

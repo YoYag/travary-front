@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const SearchList = ({ places }) => {
+const SearchList = ({ places, activatedLocation, setActivatedLocation }) => {
   const [currentIndex, setCurrentIndex] = useState("");
   const [selectPlace, setSelectPlace] = useState("");
 
@@ -13,21 +13,19 @@ const SearchList = ({ places }) => {
 
   const showList = places.map((place, i) => (
     <li
-      className={currentIndex == i ? "bordered" : ""}
+      className={activatedLocation == place.place_id ? "bordered" : ""}
       key={place.place_id}
-      value={i}
-      onClick={(e) => {
-        setCurrentIndex(i);
+      onClick={() => {
+        setActivatedLocation(place.place_id);
         setSelectPlace(place.name);
       }}
     >
-      <button
-        value={i}
-        className="block text-left h-full active:bg-base-content border-black"
-      >
-        <p>{place.name}</p>
-        <p className="text-xs mt-1">주소 : {place.formatted_address}</p>
-        <p className="text-xs mt-1">⭐ {place.rating}</p>
+      <button className="block text-left h-full active:bg-base-content border-black">
+        <p className="pointer-events-none">{place.name}</p>
+        <p className="text-xs mt-1 pointer-events-none">
+          주소 : {place.formatted_address}
+        </p>
+        <p className="text-xs mt-1 pointer-events-none">⭐ {place.rating}</p>
       </button>
     </li>
   ));
