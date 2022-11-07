@@ -28,16 +28,24 @@ const Header = () => {
         <nav className="flex w-full justify-center">
           <ul className="menu menu-horizontal bg-base-100">
             <li>
-              <Link to={`/`}>메인</Link>
+              <Link to={`/`} className="active:bg-base-content">
+                메인
+              </Link>
             </li>
             <li>
-              <Link to={`/plan`}>계획</Link>
+              <Link to={`/plan`} className="active:bg-base-content">
+                계획
+              </Link>
             </li>
             <li>
-              <Link to={`/meet`}>만남</Link>
+              <Link to={`/meet`} className="active:bg-base-content">
+                만남
+              </Link>
             </li>
             <li>
-              <Link to={`/diary`}>일기</Link>
+              <Link to={`/diary`} className="active:bg-base-content">
+                일기
+              </Link>
             </li>
           </ul>
         </nav>
