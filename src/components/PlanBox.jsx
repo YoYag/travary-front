@@ -9,10 +9,12 @@ const PlanBox = ({
   places,
   activatedLocation,
   setActivatedLocation,
+  placeSchedule,
+  setPlaceSchedule,
 }) => {
   return (
     <div className="w-1/2 flex">
-      <PlanRoute />
+      <PlanRoute placeSchedule={placeSchedule} />
       <SearchMap
         mapData={mapData}
         mapApiData={mapApiData}
@@ -20,6 +22,8 @@ const PlanBox = ({
         places={places}
         activatedLocation={activatedLocation}
         setActivatedLocation={setActivatedLocation}
+        placeSchedule={placeSchedule}
+        setPlaceSchedule={setPlaceSchedule}
       />
     </div>
   );

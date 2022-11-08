@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 
-const PlanRoute = () => {
+const PlanRoute = ({ placeSchedule }) => {
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
   const [count, setCount] = useState([]);
@@ -11,11 +11,11 @@ const PlanRoute = () => {
   const startDate = new Date(start.split("-"));
   const endDate = new Date(end.split("-"));
   const dif = endDate - startDate;
-  const schedule = dif / 24 / 60 / 60 / 1000; // 시 * 분 * 초 * 밀리세컨
+  const timeSchedule = dif / 24 / 60 / 60 / 1000; // 시 * 분 * 초 * 밀리세컨
 
   const countDate = () => {
     let newArr = [];
-    for (let i = 1; i <= schedule + 1; i++) {
+    for (let i = 1; i <= timeSchedule + 1; i++) {
       newArr.push(i);
     }
     setCount(newArr);
@@ -39,13 +39,24 @@ const PlanRoute = () => {
     </li>
   ));
 
+  const planPage = count.map((number, i) => (
+    <li
+      key={i}
+      className={
+        i == currentIndex ? "absolute bg-base-100 z-10" : "absolute bg-base-100"
+      }
+    >
+      {number}일차 페이지
+      <ul>
+        {placeSchedule.map((place, i) => (
+          <li key={i}>{place}</li>
+        ))}
+      </ul>
+    </li>
+  ));
+
   const showData = () => {
-    let newArr = [];
-    for (let i = 1; i <= schedule; i++) {
-      newArr.push(i);
-    }
-    setCount(newArr);
-    console.log("count", count);
+    console.log("placeSchedule", placeSchedule);
   };
 
   return (
@@ -68,8 +79,10 @@ const PlanRoute = () => {
         }}
         className="w-1/2 h-8"
       />
-      <ul className="menu bg-base-100 w-6">{countList}</ul>
-      <div></div>
+      <div className="flex h-list-custom">
+        <ul className="menu bg-base-100 w-6">{countList}</ul>
+        <ul className="w-full">{planPage}</ul>
+      </div>
       <button className="btn btn-sm" onClick={showData}>
         클릭
       </button>

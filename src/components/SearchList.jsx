@@ -1,9 +1,13 @@
 import React from "react";
 import { useState } from "react";
 
-const SearchList = ({ places, activatedLocation, setActivatedLocation }) => {
+const SearchList = ({
+  places,
+  activatedLocation,
+  setActivatedLocation,
+  setSelectPlace,
+}) => {
   const [currentIndex, setCurrentIndex] = useState("");
-  const [selectPlace, setSelectPlace] = useState("");
 
   // const showData = () => {
   //   console.log("places : ", places[0].place_id);

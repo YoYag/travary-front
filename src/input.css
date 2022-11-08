@@ -14,7 +14,11 @@
   }
 
   .h-list-custom {
-    height: 664.75px;
+    height: 68.25vh;
+  }
+
+  .w-191px {
+    width: 191px;
   }
 
   .w-1280px {

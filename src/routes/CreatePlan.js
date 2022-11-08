@@ -9,6 +9,7 @@ const CreatePlan = () => {
   const [mapApiData, setMapApiData] = useState("");
   const [places, setPlaces] = useState([]);
   const [activatedLocation, setActivatedLocation] = useState("");
+  const [placeSchedule, setPlaceSchedule] = useState([]);
 
   // 검색기능(지도 마커 표시)
   const addPlace = (places) => {
@@ -27,6 +28,8 @@ const CreatePlan = () => {
           places={places}
           activatedLocation={activatedLocation}
           setActivatedLocation={setActivatedLocation}
+          placeSchedule={placeSchedule}
+          setPlaceSchedule={setPlaceSchedule}
         />
       ) : (
         ""
