@@ -16,7 +16,7 @@ const SearchMap = ({
   const [selectPlace, setSelectPlace] = useState("");
 
   const addSchedule = () => {
-    let newArr = placeSchedule;
+    let newArr = [...placeSchedule];
     newArr.push(selectPlace);
     setPlaceSchedule(newArr);
   };
