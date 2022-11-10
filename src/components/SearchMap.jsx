@@ -10,15 +10,24 @@ const SearchMap = ({
   places,
   activatedLocation,
   setActivatedLocation,
+  dayCurrentIndex,
+  setDayCurrentIndex,
   placeSchedule,
   setPlaceSchedule,
+  dayPlaceSchedule,
+  setDayPlaceSchedule,
 }) => {
   const [selectPlace, setSelectPlace] = useState("");
 
   const addSchedule = () => {
-    let newArr = [...placeSchedule];
+    let newArr = [...dayPlaceSchedule[dayCurrentIndex]];
     newArr.push(selectPlace);
-    setPlaceSchedule(newArr);
+    dayPlaceSchedule[dayCurrentIndex] = newArr;
+    console.log(dayPlaceSchedule[dayCurrentIndex]);
+    // setPlaceSchedule(newArr);
+    // // setPlaceSchedule(placeSchedule.concat(selectPlace));
+    // console.log(dayCurrentIndex);
+    // setDayPlaceSchedule(dayPlaceSchedule);
   };
 
   return (

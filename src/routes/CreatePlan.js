@@ -9,7 +9,10 @@ const CreatePlan = () => {
   const [mapApiData, setMapApiData] = useState("");
   const [places, setPlaces] = useState([]);
   const [activatedLocation, setActivatedLocation] = useState("");
+  const [count, setCount] = useState([]);
+  const [dayCurrentIndex, setDayCurrentIndex] = useState(0);
   const [placeSchedule, setPlaceSchedule] = useState([]);
+  const [dayPlaceSchedule, setDayPlaceSchedule] = useState({});
 
   // 검색기능(지도 마커 표시)
   const addPlace = (places) => {
@@ -28,8 +31,14 @@ const CreatePlan = () => {
           places={places}
           activatedLocation={activatedLocation}
           setActivatedLocation={setActivatedLocation}
+          dayCurrentIndex={dayCurrentIndex}
+          setDayCurrentIndex={setDayCurrentIndex}
+          count={count}
+          setCount={setCount}
           placeSchedule={placeSchedule}
           setPlaceSchedule={setPlaceSchedule}
+          dayPlaceSchedule={dayPlaceSchedule}
+          setDayPlaceSchedule={setDayPlaceSchedule}
         />
       ) : (
         ""
