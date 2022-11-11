@@ -13,8 +13,6 @@ const PlanBox = ({
   setCount,
   dayCurrentIndex,
   setDayCurrentIndex,
-  placeSchedule,
-  setPlaceSchedule,
   dayPlaceSchedule,
   setDayPlaceSchedule,
 }) => {
@@ -25,7 +23,6 @@ const PlanBox = ({
         setCount={setCount}
         dayCurrentIndex={dayCurrentIndex}
         setDayCurrentIndex={setDayCurrentIndex}
-        placeSchedule={placeSchedule}
         dayPlaceSchedule={dayPlaceSchedule}
         setDayPlaceSchedule={setDayPlaceSchedule}
       />
@@ -37,9 +34,6 @@ const PlanBox = ({
         activatedLocation={activatedLocation}
         setActivatedLocation={setActivatedLocation}
         dayCurrentIndex={dayCurrentIndex}
-        setDayCurrentIndex={setDayCurrentIndex}
-        placeSchedule={placeSchedule}
-        setPlaceSchedule={setPlaceSchedule}
         dayPlaceSchedule={dayPlaceSchedule}
         setDayPlaceSchedule={setDayPlaceSchedule}
       />

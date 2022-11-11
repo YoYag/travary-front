@@ -6,7 +6,6 @@ const PlanRoute = ({
   setCount,
   dayCurrentIndex,
   setDayCurrentIndex,
-  placeSchedule,
   dayPlaceSchedule,
   setDayPlaceSchedule,
 }) => {
@@ -53,21 +52,22 @@ const PlanRoute = ({
       key={i}
       className={
         i == dayCurrentIndex
-          ? "absolute h-full bg-base-100 z-10"
-          : "absolute h-full bg-base-100"
+          ? "absolute w-191px h-list-custom bg-base-100 z-10"
+          : "absolute w-191px h-list-custom bg-base-100"
       }
     >
-      {day + 1}일차 페이지
-      <ul>
+      <ul className="steps steps-vertical">
         {dayPlaceSchedule[day].map((place, i) => (
-          <li key={i}>{place}</li>
+          <li key={i} className="step step-neutral list">
+            {place}
+          </li>
         ))}
       </ul>
     </li>
   ));
 
   const showData = () => {
-    console.log("dayPlaceSchedule", dayPlaceSchedule);
+    console.log("test");
   };
 
   return (
@@ -90,12 +90,12 @@ const PlanRoute = ({
         }}
         className="w-1/2 h-8"
       />
-      <div className="flex h-list-custom">
+      <div className="flex w-full h-list-custom">
         <ul className="menu bg-base-100 w-6">{countList}</ul>
-        <ul className="w-full bg-base-300">{planPage}</ul>
+        <ul className="w-full">{planPage}</ul>
       </div>
-      <button className="btn btn-sm" onClick={showData}>
-        클릭
+      <button className="btn btn-outline btn-sm w-full" onClick={showData}>
+        작업완료
       </button>
     </div>
   );
