@@ -9,8 +9,8 @@ const PlanBox = ({
   places,
   activatedLocation,
   setActivatedLocation,
-  count,
-  setCount,
+  countDate,
+  setCountDate,
   dayCurrentIndex,
   setDayCurrentIndex,
   dayPlaceSchedule,
@@ -19,8 +19,8 @@ const PlanBox = ({
   return (
     <div className="w-1/2 flex">
       <PlanRoute
-        count={count}
-        setCount={setCount}
+        countDate={countDate}
+        setCountDate={setCountDate}
         dayCurrentIndex={dayCurrentIndex}
         setDayCurrentIndex={setDayCurrentIndex}
         dayPlaceSchedule={dayPlaceSchedule}

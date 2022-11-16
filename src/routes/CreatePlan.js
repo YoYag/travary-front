@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Map from "../components/map/Map.jsx";
-import PlanBox from "../components/PlanBox.jsx";
+import PlanBox from "../components/plan/PlanBox.jsx";
 
 const CreatePlan = () => {
   const [apiReady, setApiReady] = useState(false);
@@ -9,7 +9,7 @@ const CreatePlan = () => {
   const [mapApiData, setMapApiData] = useState("");
   const [places, setPlaces] = useState([]);
   const [activatedLocation, setActivatedLocation] = useState("");
-  const [count, setCount] = useState([]);
+  const [countDate, setCountDate] = useState([]);
   const [dayCurrentIndex, setDayCurrentIndex] = useState(0);
   const [dayPlaceSchedule, setDayPlaceSchedule] = useState({});
 
@@ -32,8 +32,8 @@ const CreatePlan = () => {
           setActivatedLocation={setActivatedLocation}
           dayCurrentIndex={dayCurrentIndex}
           setDayCurrentIndex={setDayCurrentIndex}
-          count={count}
-          setCount={setCount}
+          countDate={countDate}
+          setCountDate={setCountDate}
           dayPlaceSchedule={dayPlaceSchedule}
           setDayPlaceSchedule={setDayPlaceSchedule}
         />
