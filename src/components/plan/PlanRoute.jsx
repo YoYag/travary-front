@@ -1,5 +1,7 @@
+import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { URL } from "../../util/url";
 
 const PlanRoute = ({
   countDate,
@@ -8,9 +10,33 @@ const PlanRoute = ({
   setDayCurrentIndex,
   dayPlaceSchedule,
   setDayPlaceSchedule,
+  planInfo,
+  setPlanInfo,
 }) => {
   const [startPlan, setStartPlan] = useState("");
   const [endPlan, setEndPlan] = useState("");
+  const [error, setError] = useState(null);
+
+  const postData = async () => {
+    try {
+      const data = await axios({
+        url: `${URL}/api/plan/create`,
+        method: "POST",
+        data: {
+          planStartDate: planInfo.planStartDate,
+          planEndDate: planInfo.planEndDate,
+          countDate: planInfo.countDate,
+          dayPlaceSchedule: planInfo.dayPlaceSchedule,
+        },
+      });
+    } catch (e) {
+      setError(e);
+    }
+  };
+
+  const showData = () => {
+    console.log("planInfo : ", planInfo);
+  };
 
   // 날짜 계산
   const startDate = new Date(startPlan.split("-"));
@@ -27,6 +53,10 @@ const PlanRoute = ({
     }
     setCountDate(newArr);
     setDayPlaceSchedule(newDayArr);
+    setPlanInfo({
+      ...planInfo,
+      countDate: JSON.stringify(newArr),
+    });
   };
 
   useEffect(() => {
@@ -66,10 +96,6 @@ const PlanRoute = ({
     </li>
   ));
 
-  const postData = () => {
-    console.log("dayPlaceSchedule : ", dayPlaceSchedule);
-  };
-
   return (
     <div className="w-full border-r">
       <input
@@ -77,7 +103,11 @@ const PlanRoute = ({
         name="start"
         onChange={(e) => {
           setStartPlan(e.target.value);
-          countDate();
+          setPlanInfo({
+            ...planInfo,
+            planStartDate: e.target.value,
+          });
+          countDatePlan();
         }}
         className="w-1/2 h-8"
       />
@@ -86,7 +116,11 @@ const PlanRoute = ({
         name="end"
         onChange={(e) => {
           setEndPlan(e.target.value);
-          countDate();
+          setPlanInfo({
+            ...planInfo,
+            planEndDate: e.target.value,
+          });
+          countDatePlan();
         }}
         className="w-1/2 h-8"
       />

@@ -13,6 +13,13 @@ const CreatePlan = () => {
   const [dayCurrentIndex, setDayCurrentIndex] = useState(0);
   const [dayPlaceSchedule, setDayPlaceSchedule] = useState({});
 
+  const [planInfo, setPlanInfo] = useState({
+    planStartDate: "",
+    planEndDate: "",
+    countDate: "",
+    dayPlaceSchedule: "",
+  });
+
   // 검색기능(지도 마커 표시)
   const addPlace = (places) => {
     if (places) {
@@ -36,6 +43,8 @@ const CreatePlan = () => {
           setCountDate={setCountDate}
           dayPlaceSchedule={dayPlaceSchedule}
           setDayPlaceSchedule={setDayPlaceSchedule}
+          planInfo={planInfo}
+          setPlanInfo={setPlanInfo}
         />
       ) : (
         ""

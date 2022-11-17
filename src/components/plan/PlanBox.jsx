@@ -15,6 +15,8 @@ const PlanBox = ({
   setDayCurrentIndex,
   dayPlaceSchedule,
   setDayPlaceSchedule,
+  planInfo,
+  setPlanInfo,
 }) => {
   return (
     <div className="w-1/2 flex">
@@ -25,6 +27,8 @@ const PlanBox = ({
         setDayCurrentIndex={setDayCurrentIndex}
         dayPlaceSchedule={dayPlaceSchedule}
         setDayPlaceSchedule={setDayPlaceSchedule}
+        planInfo={planInfo}
+        setPlanInfo={setPlanInfo}
       />
       <SearchMap
         mapData={mapData}
@@ -36,6 +40,8 @@ const PlanBox = ({
         dayCurrentIndex={dayCurrentIndex}
         dayPlaceSchedule={dayPlaceSchedule}
         setDayPlaceSchedule={setDayPlaceSchedule}
+        planInfo={planInfo}
+        setPlanInfo={setPlanInfo}
       />
     </div>
   );

@@ -13,6 +13,8 @@ const SearchMap = ({
   dayCurrentIndex,
   dayPlaceSchedule,
   setDayPlaceSchedule,
+  planInfo,
+  setPlanInfo,
 }) => {
   const [selectPlace, setSelectPlace] = useState("");
 
@@ -20,6 +22,10 @@ const SearchMap = ({
     let newArr = [...dayPlaceSchedule];
     newArr[dayCurrentIndex].push(selectPlace);
     setDayPlaceSchedule(newArr);
+    setPlanInfo({
+      ...planInfo,
+      dayPlaceSchedule: JSON.stringify(dayPlaceSchedule),
+    });
     // // setPlaceSchedule(placeSchedule.concat(selectPlace));
   };
 
