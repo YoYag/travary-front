@@ -14,8 +14,8 @@ const CreatePlan = () => {
   const [dayPlaceSchedule, setDayPlaceSchedule] = useState({});
 
   const [planInfo, setPlanInfo] = useState({
-    planStartDate: "",
-    planEndDate: "",
+    startPlan: "",
+    endPlan: "",
     countDate: "",
     dayPlaceSchedule: "",
   });

@@ -13,8 +13,6 @@ const PlanRoute = ({
   planInfo,
   setPlanInfo,
 }) => {
-  const [startPlan, setStartPlan] = useState("");
-  const [endPlan, setEndPlan] = useState("");
   const [error, setError] = useState(null);
 
   const postData = async () => {
@@ -23,8 +21,8 @@ const PlanRoute = ({
         url: `${URL}/api/plan/create`,
         method: "POST",
         data: {
-          planStartDate: planInfo.planStartDate,
-          planEndDate: planInfo.planEndDate,
+          startPlan: planInfo.startPlan,
+          endPlan: planInfo.endPlan,
           countDate: planInfo.countDate,
           dayPlaceSchedule: planInfo.dayPlaceSchedule,
         },
@@ -34,13 +32,9 @@ const PlanRoute = ({
     }
   };
 
-  const showData = () => {
-    console.log("planInfo : ", planInfo);
-  };
-
   // 날짜 계산
-  const startDate = new Date(startPlan.split("-"));
-  const endDate = new Date(endPlan.split("-"));
+  const startDate = new Date(planInfo.startPlan.split("-"));
+  const endDate = new Date(planInfo.endPlan.split("-"));
   const dif = endDate - startDate;
   const timeSchedule = dif / 24 / 60 / 60 / 1000; // 시 * 분 * 초 * 밀리세컨
 
@@ -61,7 +55,7 @@ const PlanRoute = ({
 
   useEffect(() => {
     countDatePlan();
-  }, [startPlan, endPlan]);
+  }, [planInfo.startPlan, planInfo.endPlan]);
 
   const countList = countDate.map((day, i) => (
     <li
@@ -96,17 +90,21 @@ const PlanRoute = ({
     </li>
   ));
 
+  const checkData = () => {
+    console.log(planInfo);
+  };
+
   return (
     <div className="w-full border-r">
       <input
         type="date"
         name="start"
         onChange={(e) => {
-          setStartPlan(e.target.value);
-          setPlanInfo({
-            ...planInfo,
-            planStartDate: e.target.value,
-          });
+          // setPlanInfo({
+          //   ...planInfo,
+          //   startPlan: e.target.value,
+          // });
+          planInfo.startPlan = e.target.value;
           countDatePlan();
         }}
         className="w-1/2 h-8"
@@ -115,11 +113,11 @@ const PlanRoute = ({
         type="date"
         name="end"
         onChange={(e) => {
-          setEndPlan(e.target.value);
-          setPlanInfo({
-            ...planInfo,
-            planEndDate: e.target.value,
-          });
+          // setPlanInfo({
+          //   ...planInfo,
+          //   endPlan: e.target.value,
+          // });
+          planInfo.endPlan = e.target.value;
           countDatePlan();
         }}
         className="w-1/2 h-8"
@@ -130,6 +128,9 @@ const PlanRoute = ({
       </div>
       <button className="btn btn-outline btn-sm w-full" onClick={postData}>
         작업완료
+      </button>
+      <button className="btn btn-outline btn-sm w-full" onClick={checkData}>
+        데이터 확인
       </button>
     </div>
   );
