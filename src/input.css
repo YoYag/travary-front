@@ -18,7 +18,7 @@
   }
 
   .w-191px {
-    width: 191px;
+    width: 184px;
   }
 
   .w-1280px {
@@ -51,12 +51,12 @@
   }
 
   .scrollbar::-webkit-scrollbar-thumb {
-    background: #303030;
+    background: #595959;
     border-radius: 100vh;
     /* border: 3px solid #f6f7ed; */
   }
 
   .scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #595959;
+    background: #797979;
   }
 }

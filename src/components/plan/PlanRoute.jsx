@@ -60,7 +60,7 @@ const PlanRoute = ({
   const countList = countDate.map((day, i) => (
     <li
       key={i}
-      className={i == dayCurrentIndex ? "bordered" : ""}
+      className={i == dayCurrentIndex ? "bordered" : "p-0.5"}
       onClick={() => {
         setDayCurrentIndex(i);
       }}
@@ -76,8 +76,8 @@ const PlanRoute = ({
       key={i}
       className={
         i == dayCurrentIndex
-          ? "absolute w-191px h-list-custom bg-base-100 z-10"
-          : "absolute w-191px h-list-custom bg-base-100"
+          ? "absolute w-191px h-list-custom bg-base-100 z-10 overflow-y-auto scrollbar"
+          : "absolute w-191px h-list-custom bg-base-100 overflow-y-auto scrollbar"
       }
     >
       <ul className="steps steps-vertical">
@@ -89,10 +89,6 @@ const PlanRoute = ({
       </ul>
     </li>
   ));
-
-  const checkData = () => {
-    console.log(planInfo);
-  };
 
   return (
     <div className="w-full border-r">
@@ -123,14 +119,13 @@ const PlanRoute = ({
         className="w-1/2 h-8"
       />
       <div className="flex w-full h-list-custom">
-        <ul className="menu bg-base-100 w-6">{countList}</ul>
+        <ul className="menu bg-base-100 w-8 overflow-y-auto scrollbar">
+          {countList}
+        </ul>
         <ul className="w-full">{planPage}</ul>
       </div>
       <button className="btn btn-outline btn-sm w-full" onClick={postData}>
         작업완료
-      </button>
-      <button className="btn btn-outline btn-sm w-full" onClick={checkData}>
-        데이터 확인
       </button>
     </div>
   );
