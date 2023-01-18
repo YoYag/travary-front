@@ -11,6 +11,7 @@ import SignUp from "./routes/SignUp";
 import Test from "./routes/Test";
 import CreatePlan from "./routes/CreatePlan";
 import CreateDiary from "./routes/CreateDiary";
+import PlanDetail from "./routes/PlanDetail";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/sign_in" element={<SignIn />} />
           <Route path="/sign_up" element={<SignUp />} />
           <Route path="/test" element={<Test />} />
+          <Route path="/plan_detail" element={<PlanDetail />} />
         </Routes>
         <Link to={`/test`}>
           <button className="btn btn-sm">테스트페이지</button>

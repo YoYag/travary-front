@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { URL } from "../../util/url";
+import Modal from "../Modal";
 
 const PlanRoute = ({
   countDate,
@@ -124,9 +125,14 @@ const PlanRoute = ({
         </ul>
         <ul className="w-full">{planPage}</ul>
       </div>
-      <button className="btn btn-outline btn-sm w-full" onClick={postData}>
+      <label htmlFor="my-modal" className="btn btn-outline btn-sm w-full">
         작업완료
-      </button>
+      </label>
+      <Modal
+        modalTitle="여행 일정을 저장하시겠습니까?"
+        modalContent="작성하신 여행일정은 상세페이지에서 수정 및 삭제 가능합니다."
+        postData={postData}
+      />
     </div>
   );
 };
